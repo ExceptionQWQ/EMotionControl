@@ -10,13 +10,25 @@
 stdint.h
 -
 
-../Core/Inc/gpio.h
+../Core/Inc/key.h
 main.h
 ../Core/Inc/main.h
+FreeRTOS.h
+../Core/Inc/FreeRTOS.h
+task.h
+../Core/Inc/task.h
+cmsis_os.h
+../Core/Inc/cmsis_os.h
 
 ../Core/Inc/main.h
 stm32f1xx_hal.h
 ../Core/Inc/stm32f1xx_hal.h
+
+../Core/Inc/screen.h
+main.h
+../Core/Inc/main.h
+servo.h
+../Core/Inc/servo.h
 
 ../Core/Inc/servo.h
 main.h
@@ -404,6 +416,8 @@ portmacro.h
 ../../Source/portable/IAR/78K0R/portmacro.h
 ../Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/78K0R/portmacro.h
 
+../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+
 ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -416,19 +430,27 @@ mpu_wrappers.h
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+list.h
+../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+
 ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h
 
-/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/main.c
+/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/freertos.c
+FreeRTOS.h
+/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/FreeRTOS.h
+task.h
+/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/task.h
 main.h
 /Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/main.h
 cmsis_os.h
 /Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/cmsis_os.h
-usart.h
-/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/usart.h
-gpio.h
-/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/gpio.h
+key.h
+/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/key.h
 servo.h
 /Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/servo.h
-string.h
-/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/string.h
+usart.h
+/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/usart.h
+screen.h
+/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/screen.h
 

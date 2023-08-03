@@ -27,6 +27,7 @@
 
 #include "servo.h"
 #include "string.h"
+#include "key.h"
 
 /* USER CODE END Includes */
 
@@ -64,20 +65,14 @@ void MX_FREERTOS_Init(void);
 void HAL_GPIO_EXTI_Callback(uint16_t pin)
 {
     switch (pin) {
-//        case KEY1_Pin:
-//            HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
-//            HAL_Delay(10);
-//            HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
-//            break;
-//        case KEY2_Pin:
-//            HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
-//            HAL_Delay(10);
-//            HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
-//            break;
+        case KEY1_Pin:
+
+            break;
+        case KEY2_Pin:
+
+            break;
         case KEY3_Pin:
-            HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
-            HAL_Delay(10);
-            HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+
             break;
     }
 }
@@ -121,13 +116,6 @@ int main(void)
     HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
     HAL_Delay(100);
     HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
-
-
-    while (1) {
-        SetServoPos(2, 500, 300);
-        UpdateServoPos();
-
-    }
 
 
   /* USER CODE END 2 */

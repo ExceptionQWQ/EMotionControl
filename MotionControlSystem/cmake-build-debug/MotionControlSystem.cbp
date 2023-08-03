@@ -108,7 +108,13 @@
 		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Inc/gpio.h">
 			<Option target="MotionControlSystem.elf"/>
 		</Unit>
+		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Inc/key.h">
+			<Option target="MotionControlSystem.elf"/>
+		</Unit>
 		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Inc/main.h">
+			<Option target="MotionControlSystem.elf"/>
+		</Unit>
+		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Inc/screen.h">
 			<Option target="MotionControlSystem.elf"/>
 		</Unit>
 		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Inc/servo.h">
@@ -129,7 +135,13 @@
 		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/gpio.c">
 			<Option target="MotionControlSystem.elf"/>
 		</Unit>
+		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/key.c">
+			<Option target="MotionControlSystem.elf"/>
+		</Unit>
 		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/main.c">
+			<Option target="MotionControlSystem.elf"/>
+		</Unit>
+		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/screen.c">
 			<Option target="MotionControlSystem.elf"/>
 		</Unit>
 		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/servo.c">

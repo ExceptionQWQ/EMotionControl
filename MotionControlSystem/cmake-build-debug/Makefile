@@ -196,6 +196,33 @@ Core/Src/gpio.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MotionControlSystem.elf.dir/build.make CMakeFiles/MotionControlSystem.elf.dir/Core/Src/gpio.c.s
 .PHONY : Core/Src/gpio.c.s
 
+Core/Src/key.obj: Core/Src/key.c.obj
+
+.PHONY : Core/Src/key.obj
+
+# target to build an object file
+Core/Src/key.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MotionControlSystem.elf.dir/build.make CMakeFiles/MotionControlSystem.elf.dir/Core/Src/key.c.obj
+.PHONY : Core/Src/key.c.obj
+
+Core/Src/key.i: Core/Src/key.c.i
+
+.PHONY : Core/Src/key.i
+
+# target to preprocess a source file
+Core/Src/key.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MotionControlSystem.elf.dir/build.make CMakeFiles/MotionControlSystem.elf.dir/Core/Src/key.c.i
+.PHONY : Core/Src/key.c.i
+
+Core/Src/key.s: Core/Src/key.c.s
+
+.PHONY : Core/Src/key.s
+
+# target to generate assembly for a file
+Core/Src/key.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MotionControlSystem.elf.dir/build.make CMakeFiles/MotionControlSystem.elf.dir/Core/Src/key.c.s
+.PHONY : Core/Src/key.c.s
+
 Core/Src/main.obj: Core/Src/main.c.obj
 
 .PHONY : Core/Src/main.obj
@@ -222,6 +249,33 @@ Core/Src/main.s: Core/Src/main.c.s
 Core/Src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MotionControlSystem.elf.dir/build.make CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.s
 .PHONY : Core/Src/main.c.s
+
+Core/Src/screen.obj: Core/Src/screen.c.obj
+
+.PHONY : Core/Src/screen.obj
+
+# target to build an object file
+Core/Src/screen.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MotionControlSystem.elf.dir/build.make CMakeFiles/MotionControlSystem.elf.dir/Core/Src/screen.c.obj
+.PHONY : Core/Src/screen.c.obj
+
+Core/Src/screen.i: Core/Src/screen.c.i
+
+.PHONY : Core/Src/screen.i
+
+# target to preprocess a source file
+Core/Src/screen.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MotionControlSystem.elf.dir/build.make CMakeFiles/MotionControlSystem.elf.dir/Core/Src/screen.c.i
+.PHONY : Core/Src/screen.c.i
+
+Core/Src/screen.s: Core/Src/screen.c.s
+
+.PHONY : Core/Src/screen.s
+
+# target to generate assembly for a file
+Core/Src/screen.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MotionControlSystem.elf.dir/build.make CMakeFiles/MotionControlSystem.elf.dir/Core/Src/screen.c.s
+.PHONY : Core/Src/screen.c.s
 
 Core/Src/servo.obj: Core/Src/servo.c.obj
 
@@ -1111,9 +1165,15 @@ help:
 	@echo "... Core/Src/gpio.obj"
 	@echo "... Core/Src/gpio.i"
 	@echo "... Core/Src/gpio.s"
+	@echo "... Core/Src/key.obj"
+	@echo "... Core/Src/key.i"
+	@echo "... Core/Src/key.s"
 	@echo "... Core/Src/main.obj"
 	@echo "... Core/Src/main.i"
 	@echo "... Core/Src/main.s"
+	@echo "... Core/Src/screen.obj"
+	@echo "... Core/Src/screen.i"
+	@echo "... Core/Src/screen.s"
 	@echo "... Core/Src/servo.obj"
 	@echo "... Core/Src/servo.i"
 	@echo "... Core/Src/servo.s"

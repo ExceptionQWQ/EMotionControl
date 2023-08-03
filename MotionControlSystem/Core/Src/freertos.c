@@ -26,6 +26,11 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "key.h"
+#include "servo.h"
+#include "usart.h"
+#include "screen.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -35,6 +40,22 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+
+
+
+enum MODE_STATE{
+    MODE_STATE_NONE,
+    MODE_STATE_CALI_A_X,
+    MODE_STATE_CALI_A_Y,
+    MODE_STATE_CALI_C_X,
+    MODE_STATE_CALI_C_Y,
+    MODE_STATE_RESET,
+    MODE_STATE_BORDER,
+};
+
+int mode_state = MODE_STATE_NONE;
+
 
 /* USER CODE END PD */
 
@@ -54,13 +75,30 @@ const osThreadAttr_t defaultTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for modeSelection */
+osThreadId_t modeSelectionHandle;
+const osThreadAttr_t modeSelection_attributes = {
+  .name = "modeSelection",
+  .stack_size = 512 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 
+
+
+void EchoModeSelectOk()
+{
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+}
+
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void *argument);
+void ModeSelection(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -94,6 +132,9 @@ void MX_FREERTOS_Init(void) {
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
+  /* creation of modeSelection */
+  modeSelectionHandle = osThreadNew(ModeSelection, NULL, &modeSelection_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -120,6 +161,125 @@ void StartDefaultTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END StartDefaultTask */
+}
+
+/* USER CODE BEGIN Header_ModeSelection */
+
+
+void ModeBorder()
+{
+    struct Point aPt = {screenCPoint.x - screenWidthHalf, screenCPoint.y + screenWidthHalf};
+    struct Point bPt = {screenCPoint.x + screenWidthHalf, screenCPoint.y + screenWidthHalf};
+    struct Point cPt = {screenCPoint.x + screenWidthHalf, screenCPoint.y - screenWidthHalf};
+    struct Point dPt = {screenCPoint.x - screenWidthHalf, screenCPoint.y - screenWidthHalf};
+    servoXPos = aPt.x; servoYPos = aPt.y;
+    for (int pos = servoXPos; pos <= bPt.x; ++pos) {
+        servoXPos = pos;
+        UpdateScreen();
+        osDelay(1);
+    }
+    for (int pos = servoYPos; pos >= cPt.y; --pos) {
+        servoYPos = pos;
+        UpdateScreen();
+        osDelay(1);
+    }
+    for (int pos = servoXPos; pos >= dPt.x; --pos) {
+        servoXPos = pos;
+        UpdateScreen();
+        osDelay(1);
+    }
+    for (int pos = servoYPos; pos <= aPt.y; ++pos) {
+        servoYPos = pos;
+        UpdateScreen();
+        osDelay(1);
+    }
+}
+
+/**
+* @brief Function implementing the modeSelection thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_ModeSelection */
+void ModeSelection(void *argument)
+{
+  /* USER CODE BEGIN ModeSelection */
+  CalcScreenSize();
+  /* Infinite loop */
+  for(;;)
+  {
+      ReadKeyBit();
+      UpdateScreen();
+      switch (mode_state) {
+          case MODE_STATE_NONE:
+              if (IsModeChange()) {
+                  EchoModeSelectOk();
+                  if (bit0 == 0 && bit1 == 0) {
+                      mode_state = MODE_STATE_CALI_A_X;
+                  } else if (bit0 == 1 && bit1 == 0) {
+                      mode_state = MODE_STATE_RESET;
+                  } else if (bit0 == 0 && bit1 == 1) {
+                      mode_state = MODE_STATE_BORDER;
+                  }
+              }
+              break;
+          case MODE_STATE_CALI_A_X:
+              if (bit0) {
+                  servoXPos += bit1 ? -1 : 1;
+                  osDelay(20);
+                  EchoModeSelectOk();
+              }
+              if (IsModeChange()) {
+                  EchoModeSelectOk();
+                  mode_state = MODE_STATE_CALI_A_Y;
+              }
+              break;
+          case MODE_STATE_CALI_A_Y:
+              if (bit0) {
+                  servoYPos += bit1 ? -1 : 1;
+                  osDelay(20);
+                  EchoModeSelectOk();
+              }
+              if (IsModeChange()) {
+                  EchoModeSelectOk();
+                  mode_state = MODE_STATE_CALI_C_X;
+              }
+              break;
+          case MODE_STATE_CALI_C_X:
+              if (bit0) {
+                  servoXPos += bit1 ? -1 : 1;
+                  osDelay(20);
+                  EchoModeSelectOk();
+              }
+              if (IsModeChange()) {
+                  EchoModeSelectOk();
+                  mode_state = MODE_STATE_CALI_C_Y;
+              }
+              break;
+          case MODE_STATE_CALI_C_Y:
+              if (bit0) {
+                  servoYPos += bit1 ? -1 : 1;
+                  osDelay(20);
+                  EchoModeSelectOk();
+              }
+              if (IsModeChange()) {
+                  EchoModeSelectOk();
+                  mode_state = MODE_STATE_NONE;
+              }
+              break;
+          case MODE_STATE_RESET:
+              servoXPos = screenCPoint.x;
+              servoYPos = screenCPoint.y;
+              mode_state = MODE_STATE_NONE;
+              break;
+          case MODE_STATE_BORDER:
+              ModeBorder();
+              mode_state = MODE_STATE_NONE;
+              break;
+      }
+    osDelay(1);
+  }
+  /* USER CODE END ModeSelection */
 }
 
 /* Private application code --------------------------------------------------*/

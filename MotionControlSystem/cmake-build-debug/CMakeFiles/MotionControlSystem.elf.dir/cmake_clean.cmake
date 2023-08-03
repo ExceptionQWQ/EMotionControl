@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/MotionControlSystem.elf.dir/Core/Src/freertos.c.obj"
   "CMakeFiles/MotionControlSystem.elf.dir/Core/Src/gpio.c.obj"
+  "CMakeFiles/MotionControlSystem.elf.dir/Core/Src/key.c.obj"
   "CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj"
+  "CMakeFiles/MotionControlSystem.elf.dir/Core/Src/screen.c.obj"
   "CMakeFiles/MotionControlSystem.elf.dir/Core/Src/servo.c.obj"
   "CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj"
   "CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj"
