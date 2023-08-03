@@ -1,35 +1,42 @@
 #include "screen.h"
 
 
-int servoXPos = 512;
-int servoYPos = 512;
+int servoXPos = SCREEN_SERVO_ORIGIN_X;
+int servoYPos = SCREEN_SERVO_ORIGIN_Y;
 
-struct Point screenAPoint = { 400, 600};
-struct Point screenCPoint = {512, 512};
 
-int screenWidth = 0;
-int screenHeight = 0;
-int screenWidthHalf = 0;
-int screenHeightHalf = 0;
-
+void CheckScreenServoRange()
+{
+    if (servoXPos < SCREEN_SERVO_MIN_X) servoXPos = SCREEN_SERVO_MIN_X;
+    if (servoXPos > SCREEN_SERVO_MAX_X) servoXPos = SCREEN_SERVO_MAX_X;
+    if (servoYPos < SCREEN_SERVO_MIN_Y) servoYPos = SCREEN_SERVO_MIN_Y;
+    if (servoYPos > SCREEN_SERVO_MAX_Y) servoYPos = SCREEN_SERVO_MAX_Y;
+}
 
 void UpdateScreen()
 {
-    if (servoXPos < 300) servoXPos = 300;
-    if (servoXPos > 700) servoXPos = 700;
-    if (servoYPos < 300) servoYPos = 300;
-    if (servoYPos > 700) servoYPos = 700;
+    CheckScreenServoRange();
     SetServoPos(1, servoXPos, 2000);
-    SetServoPos(2, 1024 - servoYPos, 2000);
+    SetServoPos(2, 2 * SCREEN_SERVO_ORIGIN_Y - servoYPos, 2000);
     UpdateServoPos();
 }
 
-void CalcScreenSize()
+
+struct BallCoord CalcScreenServoCoord(double x, double y)
 {
-    screenWidthHalf = screenCPoint.x - screenAPoint.x;
-    screenHeightHalf = screenAPoint.y - screenCPoint.y;
-    screenWidth = 2 * screenWidthHalf;
-    screenHeight = 2 * screenHeightHalf;
+    struct BallCoord ballCoord;
+    double p = sqrt(pow(x, 2) + pow(y, 2) + 1);
+    ballCoord.phi = acos(y / p);
+    ballCoord.theta = acos(x / (p * sin(ballCoord.phi)));
+    return ballCoord;
+}
 
-
+struct ServoPos CalcServoPos(struct BallCoord ballCoord)
+{
+    struct ServoPos servoPos;
+    ballCoord.theta -= PI / 2;
+    servoPos.x = SCREEN_SERVO_ORIGIN_X - (ballCoord.theta / SERVO_RADIAN_PRESICION);
+    ballCoord.phi = PI / 2 - ballCoord.phi;
+    servoPos.y = SCREEN_SERVO_ORIGIN_Y + ballCoord.phi / SERVO_RADIAN_PRESICION;
+    return servoPos;
 }

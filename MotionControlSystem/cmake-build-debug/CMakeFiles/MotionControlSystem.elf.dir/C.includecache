@@ -29,6 +29,8 @@ main.h
 ../Core/Inc/main.h
 servo.h
 ../Core/Inc/servo.h
+math.h
+../Core/Inc/math.h
 
 ../Core/Inc/servo.h
 main.h
