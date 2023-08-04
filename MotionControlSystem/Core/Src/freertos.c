@@ -31,6 +31,7 @@
 #include "usart.h"
 #include "screen.h"
 #include "string.h"
+#include "stdio.h"
 
 /* USER CODE END Includes */
 
@@ -50,6 +51,7 @@ enum MODE_STATE{
     MODE_STATE_CALI,
     MODE_STATE_RESET,
     MODE_STATE_BORDER,
+    MODE_STATE_TRACK,
 };
 
 int mode_state = MODE_STATE_NONE;
@@ -85,6 +87,74 @@ const osThreadAttr_t modeSelection_attributes = {
 /* USER CODE BEGIN FunctionPrototypes */
 
 
+volatile int mvUpdateTick = 0;
+struct Point mvRecvPoint;
+struct Point mvRectA;
+struct Point mvRectB;
+struct Point mvRectC;
+struct Point mvRectD;
+
+void Debug(char* msg)
+{
+    HAL_UART_Transmit(&huart1, msg, strlen(msg), 100);
+}
+
+void HandleOpenMVPackage(int cmd, uint8_t* data, int dataLen)
+{
+    switch (cmd) {
+        case 1:
+            mvUpdateTick += 1;
+            mvRecvPoint.x = (int16_t)(((uint16_t)data[0] << 8) | (uint16_t)data[1]);
+            mvRecvPoint.y = (int16_t)(((uint16_t)data[2] << 8) | (uint16_t)data[3]);
+            break;
+        case 2:
+            mvUpdateTick += 1;
+            mvRectA.x = (int16_t)(((uint16_t)data[0] << 8) | (uint16_t)data[1]);
+            mvRectA.y = (int16_t)(((uint16_t)data[2] << 8) | (uint16_t)data[3]);
+            mvRectB.x = (int16_t)(((uint16_t)data[4] << 8) | (uint16_t)data[5]);
+            mvRectB.y = (int16_t)(((uint16_t)data[6] << 8) | (uint16_t)data[7]);
+            mvRectC.x = (int16_t)(((uint16_t)data[8] << 8) | (uint16_t)data[9]);
+            mvRectC.y = (int16_t)(((uint16_t)data[10] << 8) | (uint16_t)data[11]);
+            mvRectD.x = (int16_t)(((uint16_t)data[12] << 8) | (uint16_t)data[13]);
+            mvRectD.y = (int16_t)(((uint16_t)data[14] << 8) | (uint16_t)data[15]);
+            break;
+    }
+}
+
+//检查通用串口传输数据包
+void CheckUartTransmitPackage(uint8_t* data, int* offset)
+{
+    if (*offset < 4) return ;
+    if (data[0] != 0x12 || data[1] != 0x34) { //不是帧头，则左移一字节
+    for (int i = 0; i < *offset - 1; ++i) {
+        data[i] = data[i + 1];
+    }
+    *offset -= 1;
+    return ;
+    }
+    //是帧头
+    int dataLen = data[2];
+    int cmd = data[3];
+    uint8_t* messageData = data + 4;
+    if (*offset >= dataLen + 4) {
+        HandleOpenMVPackage(cmd, messageData, dataLen);
+    *offset = 0;
+    }
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart)
+{
+    static uint8_t uart2RecvBuff[1] = {};
+    static uint8_t uart2Buff[128] = {};
+    static int uart2Offset = 0;
+
+    if (huart->Instance == USART2) { //openmv接口
+
+        uart2Buff[uart2Offset++] = uart2RecvBuff[0];
+        CheckUartTransmitPackage(uart2Buff, &uart2Offset);
+        HAL_UART_Receive_IT(huart, uart2RecvBuff, 1);
+    }
+}
 
 void EchoModeSelectOk()
 {
@@ -153,21 +223,31 @@ void MX_FREERTOS_Init(void) {
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
+  char msg[32];
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+//      snprintf(msg, 32, "%d %d\r\n", mvRecvPoint.x, mvRecvPoint.y);
+//      Debug(msg);
+    osDelay(100);
   }
   /* USER CODE END StartDefaultTask */
 }
 
 /* USER CODE BEGIN Header_ModeSelection */
 
-
-void Debug(char* msg)
+enum OPENMV_CMD
 {
-    HAL_UART_Transmit(&huart1, msg, strlen(msg), 100);
+    OPENMV_CMD_STOP = 0x00,
+    OPENMV_CMD_DETECT_RED_LASER = 0x01,
+    OPENMV_CMD_DETECT_RECT = 0x02,
+};
+
+void OpenMVSendCMD(uint8_t cmd)
+{
+    HAL_UART_Transmit(&huart2, &cmd, 1, 100);
 }
+
 
 void DrawLine(struct Point2d start, struct Point2d end)
 {
@@ -210,13 +290,153 @@ void ModeBorder()
 
 void ModeReset()
 {
-    struct Point2d origin = {0, 0};
+    struct Point2d origin = {0.0001, 0.0001};
     DrawTo(origin);
     UpdateScreen();
 }
 
 void ModeCali()
 {
+    OpenMVSendCMD(OPENMV_CMD_DETECT_RED_LASER);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+
+    volatile int tick = 0;
+    //移动到原点
+    DrawTo(mv_o_pos);
+    osDelay(500);
+    tick = mvUpdateTick;
+    osDelay(500);
+    while (tick == mvUpdateTick) {}
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+    mv_o_pos_cali.x = mvRecvPoint.x;
+    mv_o_pos_cali.y = mvRecvPoint.y;
+
+    //移动到a点
+    DrawTo(mv_a_pos);
+    osDelay(500);
+    tick = mvUpdateTick;
+    osDelay(500);
+    while (tick == mvUpdateTick) {}
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+    mv_a_pos_cali.x = mvRecvPoint.x;
+    mv_a_pos_cali.y = mvRecvPoint.y;
+
+    //移动到b点
+    DrawTo(mv_b_pos);
+    osDelay(500);
+    tick = mvUpdateTick;
+    osDelay(500);
+    while (tick == mvUpdateTick) {}
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+    mv_b_pos_cali.x = mvRecvPoint.x;
+    mv_b_pos_cali.y = mvRecvPoint.y;
+
+    //移动到c点
+    DrawTo(mv_c_pos);
+    osDelay(500);
+    tick = mvUpdateTick;
+    osDelay(500);
+    while (tick == mvUpdateTick) {}
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+    mv_c_pos_cali.x = mvRecvPoint.x;
+    mv_c_pos_cali.y = mvRecvPoint.y;
+
+    //移动到d点
+    DrawTo(mv_d_pos);
+    osDelay(500);
+    tick = mvUpdateTick;
+    osDelay(500);
+    while (tick == mvUpdateTick) {}
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+    mv_d_pos_cali.x = mvRecvPoint.x;
+    mv_d_pos_cali.y = mvRecvPoint.y;
+
+
+    char msg[64] = {0};
+    snprintf(msg, 64, "o %d %d\r\n", mv_o_pos_cali.x, mv_o_pos_cali.y);
+    Debug(msg);
+    snprintf(msg, 64, "a %d %d\r\n", mv_a_pos_cali.x, mv_a_pos_cali.y);
+    Debug(msg);
+    snprintf(msg, 64, "b %d %d\r\n", mv_b_pos_cali.x, mv_b_pos_cali.y);
+    Debug(msg);
+    snprintf(msg, 64, "c %d %d\r\n", mv_c_pos_cali.x, mv_c_pos_cali.y);
+    Debug(msg);
+    snprintf(msg, 64, "d %d %d\r\n", mv_d_pos_cali.x, mv_d_pos_cali.y);
+    Debug(msg);
+
+
+    //复位
+    ModeReset();
+    OpenMVSendCMD(OPENMV_CMD_STOP);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(100);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+
+}
+
+void ModeTrack()
+{
+    OpenMVSendCMD(OPENMV_CMD_DETECT_RECT);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(50);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+    osDelay(50);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(50);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+    osDelay(50);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(50);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+
+    osDelay(1000);
+
+    volatile int tick = mvUpdateTick;
+    osDelay(500);
+
+    while (tick == mvUpdateTick) {}
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_SET);
+    osDelay(500);
+    HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
+
+
+    struct Point2d aPt = CalcScreenPosFromOpenMVPos(mvRectA);
+    struct Point2d bPt = CalcScreenPosFromOpenMVPos(mvRectB);
+    struct Point2d cPt = CalcScreenPosFromOpenMVPos(mvRectC);
+    struct Point2d dPt = CalcScreenPosFromOpenMVPos(mvRectD);
+    DrawTo(aPt);
+    DrawTo(bPt);
+    DrawTo(cPt);
+    DrawTo(dPt);
+    DrawTo(aPt);
 
 }
 
@@ -230,27 +450,25 @@ void ModeSelection(void *argument)
 {
   /* USER CODE BEGIN ModeSelection */
 
+    uint8_t fffff;
+    HAL_UART_Receive_IT(&huart2, &fffff, 1);
+
     //校准
     screen_servo_origin_pos.y = 2283;
     screen_origin_pos = CalcScreenPosFromServoPos(screen_servo_origin_pos);
     ModeReset();
     osDelay(1000);
 
-    Debug("Hello World\r\n");
+    ModeCali();
 
-//    ModeBorder();
-
-//    struct BallCoord ballCoord = CalcScreenServoCoord(-0.25 + screen_origin_pos.x, 0.25 + screen_origin_pos.y);
-//    struct ServoPos servoPos = CalcServoPos(ballCoord);
-//    servoXPos = servoPos.x; servoYPos = servoPos.y;
-//    UpdateScreen();
+    ModeTrack();
 
   /* Infinite loop */
   for(;;)
   {
       ReadKeyBit();
       UpdateScreen();
-      ModeBorder();
+//      ModeBorder();
       switch (mode_state) {
           case MODE_STATE_NONE:
               if (IsModeChange()) {
@@ -261,6 +479,8 @@ void ModeSelection(void *argument)
                       mode_state = MODE_STATE_RESET;
                   } else if (bit0 == 0 && bit1 == 1) {
                       mode_state = MODE_STATE_BORDER;
+                  } else if (bit0 == 1 && bit1 == 1) {
+                      mode_state = MODE_STATE_TRACK;
                   }
               }
               break;
@@ -274,6 +494,10 @@ void ModeSelection(void *argument)
               break;
           case MODE_STATE_BORDER:
               ModeBorder();
+              mode_state = MODE_STATE_NONE;
+              break;
+          case MODE_STATE_TRACK:
+              ModeTrack();
               mode_state = MODE_STATE_NONE;
               break;
       }

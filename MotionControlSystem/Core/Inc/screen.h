@@ -54,12 +54,26 @@ extern struct ScreenPos screen_origin_pos;
 extern struct ServoPos screen_servo_origin_pos;
 extern struct Point2d cursor_pos;
 
+extern struct Point2d mv_o_pos;
+extern struct Point2d mv_a_pos;
+extern struct Point2d mv_b_pos;
+extern struct Point2d mv_c_pos;
+extern struct Point2d mv_d_pos;
+
+extern struct Point mv_o_pos_cali;
+extern struct Point mv_a_pos_cali;
+extern struct Point mv_b_pos_cali;
+extern struct Point mv_c_pos_cali;
+extern struct Point mv_d_pos_cali;
+
+
 
 
 void CheckScreenServoRange();
 struct BallCoord CalcScreenServoCoord(double x, double y);
 struct ServoPos CalcServoPos(struct BallCoord ballCoord);
 struct ScreenPos CalcScreenPosFromServoPos(struct ServoPos servoPos);
+struct Point2d CalcScreenPosFromOpenMVPos(struct Point point);
 
 
 
