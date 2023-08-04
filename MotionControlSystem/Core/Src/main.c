@@ -117,6 +117,9 @@ int main(void)
     HAL_Delay(100);
     HAL_GPIO_WritePin(BEEP_GPIO_Port, BEEP_Pin, GPIO_PIN_RESET);
 
+    char msg[] = "Hello\r\n";
+    HAL_UART_Transmit(&huart2, msg, strlen(msg), 100);
+
 
   /* USER CODE END 2 */
 

@@ -46,10 +46,8 @@
 
 enum MODE_STATE{
     MODE_STATE_NONE,
-    MODE_STATE_CALI_A_X,
-    MODE_STATE_CALI_A_Y,
-    MODE_STATE_CALI_C_X,
-    MODE_STATE_CALI_C_Y,
+    MODE_STATE_CALI_X,
+    MODE_STATE_CALI_Y,
     MODE_STATE_RESET,
     MODE_STATE_BORDER,
 };
@@ -166,37 +164,45 @@ void StartDefaultTask(void *argument)
 /* USER CODE BEGIN Header_ModeSelection */
 
 
-void NodeBorder()
+void ModeBorder()
 {
-    for (double x = -0.25; x <= 0.25; x += 0.01) {
-        struct BallCoord ballCoord = CalcScreenServoCoord(x, 0.25);
+    for (double x = -0.25; x <= 0.25; x += 0.002) {
+        struct BallCoord ballCoord = CalcScreenServoCoord(x + screen_origin_pos.x, 0.25 + screen_origin_pos.y);
         struct ServoPos servoPos = CalcServoPos(ballCoord);
         servoXPos = servoPos.x; servoYPos = servoPos.y;
         UpdateScreen();
         osDelay(30);
     }
-    for (double y = 0.25; y >= -0.25; y -= 0.01) {
-        struct BallCoord ballCoord = CalcScreenServoCoord(0.25, y);
+    for (double y = 0.25; y >= -0.25; y -= 0.002) {
+        struct BallCoord ballCoord = CalcScreenServoCoord(0.25 + screen_origin_pos.x, y + screen_origin_pos.y);
         struct ServoPos servoPos = CalcServoPos(ballCoord);
         servoXPos = servoPos.x; servoYPos = servoPos.y;
         UpdateScreen();
         osDelay(30);
     }
-    for (double x = 0.25; x >= -0.25; x -= 0.01) {
-        struct BallCoord ballCoord = CalcScreenServoCoord(x, -0.25);
+    for (double x = 0.25; x >= -0.25; x -= 0.002) {
+        struct BallCoord ballCoord = CalcScreenServoCoord(x + screen_origin_pos.x, -0.25 + screen_origin_pos.y);
         struct ServoPos servoPos = CalcServoPos(ballCoord);
         servoXPos = servoPos.x; servoYPos = servoPos.y;
         UpdateScreen();
         osDelay(30);
     }
-    for (double y = -0.25; y <= 0.25; y += 0.01) {
-        struct BallCoord ballCoord = CalcScreenServoCoord(-0.25, y);
+    for (double y = -0.25; y <= 0.25; y += 0.002) {
+        struct BallCoord ballCoord = CalcScreenServoCoord(-0.25 + screen_origin_pos.x, y + screen_origin_pos.y);
         struct ServoPos servoPos = CalcServoPos(ballCoord);
         servoXPos = servoPos.x; servoYPos = servoPos.y;
         UpdateScreen();
         osDelay(30);
     }
 
+}
+
+
+void ModeReset()
+{
+    servoXPos = screen_servo_origin_pos.x;
+    servoYPos = screen_servo_origin_pos.y;
+    UpdateScreen();
 }
 
 /**
@@ -210,6 +216,17 @@ void ModeSelection(void *argument)
   /* USER CODE BEGIN ModeSelection */
 
 
+    screen_servo_origin_pos.y = 2286;
+    screen_origin_pos = CalcScreenPosFromServoPos(screen_servo_origin_pos);
+    ModeReset();
+    osDelay(1000);
+
+    ModeBorder();
+
+//    struct BallCoord ballCoord = CalcScreenServoCoord(-0.25 + screen_origin_pos.x, 0.25 + screen_origin_pos.y);
+//    struct ServoPos servoPos = CalcServoPos(ballCoord);
+//    servoXPos = servoPos.x; servoYPos = servoPos.y;
+//    UpdateScreen();
 
   /* Infinite loop */
   for(;;)
@@ -221,7 +238,7 @@ void ModeSelection(void *argument)
               if (IsModeChange()) {
                   EchoModeSelectOk();
                   if (bit0 == 0 && bit1 == 0) {
-                      mode_state = MODE_STATE_CALI_A_X;
+                      mode_state = MODE_STATE_CALI_X;
                   } else if (bit0 == 1 && bit1 == 0) {
                       mode_state = MODE_STATE_RESET;
                   } else if (bit0 == 0 && bit1 == 1) {
@@ -229,9 +246,39 @@ void ModeSelection(void *argument)
                   }
               }
               break;
-
+          case MODE_STATE_CALI_X:
+              if (bit0) {
+                  servoXPos += bit1 ? -1 : 1;
+                  CheckScreenServoRange();
+                  osDelay(8);
+                  EchoModeSelectOk();
+              }
+              if (IsModeChange()) {
+                  EchoModeSelectOk();
+                  screen_servo_origin_pos.x = servoXPos;
+                  mode_state = MODE_STATE_CALI_Y;
+              }
+              break;
+          case MODE_STATE_CALI_Y:
+              if (bit0) {
+                  servoYPos += bit1 ? -1 : 1;
+                  CheckScreenServoRange();
+                  osDelay(8);
+                  EchoModeSelectOk();
+              }
+              if (IsModeChange()) {
+                  EchoModeSelectOk();
+                  screen_servo_origin_pos.y = servoYPos;
+                  screen_origin_pos = CalcScreenPosFromServoPos(screen_servo_origin_pos);
+                  mode_state = MODE_STATE_NONE;
+              }
+              break;
+          case MODE_STATE_RESET:
+              ModeReset();
+              mode_state = MODE_STATE_NONE;
+              break;
           case MODE_STATE_BORDER:
-              NodeBorder();
+              ModeBorder();
               mode_state = MODE_STATE_NONE;
               break;
       }
