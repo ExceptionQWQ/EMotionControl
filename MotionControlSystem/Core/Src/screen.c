@@ -6,6 +6,7 @@ int servoYPos = SCREEN_SERVO_ORIGIN_Y;
 
 struct ScreenPos screen_origin_pos = {0, 0};
 struct ServoPos screen_servo_origin_pos = {SCREEN_SERVO_ORIGIN_X, SCREEN_SERVO_ORIGIN_Y};
+struct Point2d cursor_pos = {0, 0};
 
 void CheckScreenServoRange()
 {
@@ -18,8 +19,8 @@ void CheckScreenServoRange()
 void UpdateScreen()
 {
     CheckScreenServoRange();
-    SetServoPos(1, servoXPos, 2000);
-    SetServoPos(2, 2 * SCREEN_SERVO_ORIGIN_Y - servoYPos, 2000);
+    SetServoPos(1, servoXPos, 500);
+    SetServoPos(2, 2 * SCREEN_SERVO_ORIGIN_Y - servoYPos, 500);
     UpdateServoPos();
 }
 

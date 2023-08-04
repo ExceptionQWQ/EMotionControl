@@ -23,6 +23,12 @@ struct Point
     int y;
 };
 
+struct Point2d
+{
+    double x;
+    double y;
+};
+
 struct BallCoord
 {
     double theta;
@@ -46,6 +52,7 @@ extern int servoYPos;
 
 extern struct ScreenPos screen_origin_pos;
 extern struct ServoPos screen_servo_origin_pos;
+extern struct Point2d cursor_pos;
 
 
 

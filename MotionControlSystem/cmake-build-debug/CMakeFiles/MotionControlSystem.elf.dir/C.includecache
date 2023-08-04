@@ -455,4 +455,6 @@ usart.h
 /Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/usart.h
 screen.h
 /Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/screen.h
+string.h
+/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/string.h
 

@@ -126,6 +126,9 @@
 		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Inc/stm32f1xx_it.h">
 			<Option target="MotionControlSystem.elf"/>
 		</Unit>
+		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Inc/tim.h">
+			<Option target="MotionControlSystem.elf"/>
+		</Unit>
 		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Inc/usart.h">
 			<Option target="MotionControlSystem.elf"/>
 		</Unit>
@@ -163,6 +166,9 @@
 			<Option target="MotionControlSystem.elf"/>
 		</Unit>
 		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/system_stm32f1xx.c">
+			<Option target="MotionControlSystem.elf"/>
+		</Unit>
+		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/tim.c">
 			<Option target="MotionControlSystem.elf"/>
 		</Unit>
 		<Unit filename="/Users/mac/Desktop/EMotionControl-WS/EMotionControl/MotionControlSystem/Core/Src/usart.c">

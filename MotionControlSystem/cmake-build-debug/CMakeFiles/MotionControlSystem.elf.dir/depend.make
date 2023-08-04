@@ -133,6 +133,7 @@ CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj: ../Core/Inc/key.h
 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj: ../Core/Inc/main.h
 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj: ../Core/Inc/servo.h
 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj: ../Core/Inc/stm32f1xx_hal_conf.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj: ../Core/Inc/tim.h
 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj: ../Core/Inc/usart.h
 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
@@ -373,6 +374,39 @@ CMakeFiles/MotionControlSystem.elf.dir/Core/Src/system_stm32f1xx.c.obj: ../Drive
 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/system_stm32f1xx.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/system_stm32f1xx.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/system_stm32f1xx.c.obj: ../Core/Src/system_stm32f1xx.c
+
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Core/Inc/main.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Core/Inc/stm32f1xx_hal_conf.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Core/Inc/tim.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/CMSIS/Include/cmsis_armcc.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/CMSIS/Include/cmsis_armclang.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/CMSIS/Include/cmsis_compiler.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/CMSIS/Include/cmsis_gcc.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/CMSIS/Include/cmsis_iccarm.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/CMSIS/Include/cmsis_version.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/CMSIS/Include/core_cm3.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/CMSIS/Include/mpu_armv7.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj: ../Core/Src/tim.c
 
 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/usart.c.obj: ../Core/Inc/main.h
 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/usart.c.obj: ../Core/Inc/stm32f1xx_hal_conf.h
