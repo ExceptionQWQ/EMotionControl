@@ -241,6 +241,7 @@ enum OPENMV_CMD
     OPENMV_CMD_STOP = 0x00,
     OPENMV_CMD_DETECT_RED_LASER = 0x01,
     OPENMV_CMD_DETECT_RECT = 0x02,
+    OPENMV_CMD_DETECT_TWO_LASER = 0x03,
 };
 
 void OpenMVSendCMD(uint8_t cmd)
@@ -450,6 +451,7 @@ void ModeSelection(void *argument)
 {
   /* USER CODE BEGIN ModeSelection */
 
+    osDelay(1000);
     uint8_t fffff;
     HAL_UART_Receive_IT(&huart2, &fffff, 1);
 

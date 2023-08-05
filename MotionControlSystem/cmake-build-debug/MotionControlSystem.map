@@ -3481,69 +3481,69 @@ LOAD /Applications/ARM/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-
 LOAD /Applications/ARM/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libm.a
 LOAD /Applications/ARM/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgcc.a
 
-.debug_info     0x0000000000000000    0x206dc
- .debug_info    0x0000000000000000     0x1cd6 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/freertos.c.obj
- .debug_info    0x0000000000001cd6      0x4a1 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/gpio.c.obj
- .debug_info    0x0000000000002177      0x248 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/key.c.obj
- .debug_info    0x00000000000023bf      0xaa1 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj
- .debug_info    0x0000000000002e60      0x6b0 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/screen.c.obj
- .debug_info    0x0000000000003510      0x75a CMakeFiles/MotionControlSystem.elf.dir/Core/Src/servo.c.obj
- .debug_info    0x0000000000003c6a      0x387 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
- .debug_info    0x0000000000003ff1      0xa12 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
- .debug_info    0x0000000000004a03      0xa2d CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_it.c.obj
- .debug_info    0x0000000000005430      0x7af CMakeFiles/MotionControlSystem.elf.dir/Core/Src/syscalls.c.obj
- .debug_info    0x0000000000005bdf      0x174 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/sysmem.c.obj
- .debug_info    0x0000000000005d53      0x248 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/system_stm32f1xx.c.obj
- .debug_info    0x0000000000005f9b      0xa3e CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj
- .debug_info    0x00000000000069d9      0xc50 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/usart.c.obj
- .debug_info    0x0000000000007629       0x22 CMakeFiles/MotionControlSystem.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
- .debug_info    0x000000000000764b      0x7a8 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
- .debug_info    0x0000000000007df3      0xd8a CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- .debug_info    0x0000000000008b7d      0x84b CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
- .debug_info    0x00000000000093c8      0x66f CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
- .debug_info    0x0000000000009a37      0xa3b CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .debug_info    0x000000000000a472     0x3d52 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
- .debug_info    0x000000000000e1c4     0x1abb CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
- .debug_info    0x000000000000fc7f     0x4212 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
- .debug_info    0x0000000000013e91     0x4b1f CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
- .debug_info    0x00000000000189b0      0x2da CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_info    0x0000000000018c8a      0x52b CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
- .debug_info    0x00000000000191b5      0x471 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_info    0x0000000000019626     0x2733 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_info    0x000000000001bd59     0x301a CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_info    0x000000000001ed73     0x1969 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+.debug_info     0x0000000000000000    0x206e3
+ .debug_info    0x0000000000000000     0x1cdd CMakeFiles/MotionControlSystem.elf.dir/Core/Src/freertos.c.obj
+ .debug_info    0x0000000000001cdd      0x4a1 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/gpio.c.obj
+ .debug_info    0x000000000000217e      0x248 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/key.c.obj
+ .debug_info    0x00000000000023c6      0xaa1 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj
+ .debug_info    0x0000000000002e67      0x6b0 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/screen.c.obj
+ .debug_info    0x0000000000003517      0x75a CMakeFiles/MotionControlSystem.elf.dir/Core/Src/servo.c.obj
+ .debug_info    0x0000000000003c71      0x387 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_info    0x0000000000003ff8      0xa12 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
+ .debug_info    0x0000000000004a0a      0xa2d CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_info    0x0000000000005437      0x7af CMakeFiles/MotionControlSystem.elf.dir/Core/Src/syscalls.c.obj
+ .debug_info    0x0000000000005be6      0x174 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/sysmem.c.obj
+ .debug_info    0x0000000000005d5a      0x248 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_info    0x0000000000005fa2      0xa3e CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj
+ .debug_info    0x00000000000069e0      0xc50 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/usart.c.obj
+ .debug_info    0x0000000000007630       0x22 CMakeFiles/MotionControlSystem.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
+ .debug_info    0x0000000000007652      0x7a8 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_info    0x0000000000007dfa      0xd8a CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_info    0x0000000000008b84      0x84b CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+ .debug_info    0x00000000000093cf      0x66f CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_info    0x0000000000009a3e      0xa3b CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_info    0x000000000000a479     0x3d52 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_info    0x000000000000e1cb     0x1abb CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_info    0x000000000000fc86     0x4212 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_info    0x0000000000013e98     0x4b1f CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
+ .debug_info    0x00000000000189b7      0x2da CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_info    0x0000000000018c91      0x52b CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+ .debug_info    0x00000000000191bc      0x471 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_info    0x000000000001962d     0x2733 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_info    0x000000000001bd60     0x301a CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_info    0x000000000001ed7a     0x1969 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
 
-.debug_abbrev   0x0000000000000000     0x3ed0
- .debug_abbrev  0x0000000000000000      0x3a6 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/freertos.c.obj
- .debug_abbrev  0x00000000000003a6      0x158 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/gpio.c.obj
- .debug_abbrev  0x00000000000004fe      0x135 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/key.c.obj
- .debug_abbrev  0x0000000000000633      0x215 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj
- .debug_abbrev  0x0000000000000848      0x173 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/screen.c.obj
- .debug_abbrev  0x00000000000009bb      0x202 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/servo.c.obj
- .debug_abbrev  0x0000000000000bbd      0x12d CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
- .debug_abbrev  0x0000000000000cea      0x1ec CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
- .debug_abbrev  0x0000000000000ed6      0x1b7 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_it.c.obj
- .debug_abbrev  0x000000000000108d      0x1a3 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/syscalls.c.obj
- .debug_abbrev  0x0000000000001230       0xe7 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/sysmem.c.obj
- .debug_abbrev  0x0000000000001317      0x13e CMakeFiles/MotionControlSystem.elf.dir/Core/Src/system_stm32f1xx.c.obj
- .debug_abbrev  0x0000000000001455      0x200 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj
- .debug_abbrev  0x0000000000001655      0x1d1 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/usart.c.obj
- .debug_abbrev  0x0000000000001826       0x12 CMakeFiles/MotionControlSystem.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
- .debug_abbrev  0x0000000000001838      0x1f4 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
- .debug_abbrev  0x0000000000001a2c      0x341 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- .debug_abbrev  0x0000000000001d6d      0x223 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
- .debug_abbrev  0x0000000000001f90      0x1e6 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
- .debug_abbrev  0x0000000000002176      0x27a CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .debug_abbrev  0x00000000000023f0      0x245 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
- .debug_abbrev  0x0000000000002635      0x248 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
- .debug_abbrev  0x000000000000287d      0x2dd CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
- .debug_abbrev  0x0000000000002b5a      0x418 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
- .debug_abbrev  0x0000000000002f72      0x106 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_abbrev  0x0000000000003078      0x27e CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
- .debug_abbrev  0x00000000000032f6      0x238 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_abbrev  0x000000000000352e      0x38c CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_abbrev  0x00000000000038ba      0x313 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_abbrev  0x0000000000003bcd      0x303 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+.debug_abbrev   0x0000000000000000     0x3ebf
+ .debug_abbrev  0x0000000000000000      0x395 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/freertos.c.obj
+ .debug_abbrev  0x0000000000000395      0x158 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/gpio.c.obj
+ .debug_abbrev  0x00000000000004ed      0x135 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/key.c.obj
+ .debug_abbrev  0x0000000000000622      0x215 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj
+ .debug_abbrev  0x0000000000000837      0x173 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/screen.c.obj
+ .debug_abbrev  0x00000000000009aa      0x202 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/servo.c.obj
+ .debug_abbrev  0x0000000000000bac      0x12d CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_abbrev  0x0000000000000cd9      0x1ec CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
+ .debug_abbrev  0x0000000000000ec5      0x1b7 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_abbrev  0x000000000000107c      0x1a3 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/syscalls.c.obj
+ .debug_abbrev  0x000000000000121f       0xe7 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/sysmem.c.obj
+ .debug_abbrev  0x0000000000001306      0x13e CMakeFiles/MotionControlSystem.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_abbrev  0x0000000000001444      0x200 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj
+ .debug_abbrev  0x0000000000001644      0x1d1 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/usart.c.obj
+ .debug_abbrev  0x0000000000001815       0x12 CMakeFiles/MotionControlSystem.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
+ .debug_abbrev  0x0000000000001827      0x1f4 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_abbrev  0x0000000000001a1b      0x341 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_abbrev  0x0000000000001d5c      0x223 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+ .debug_abbrev  0x0000000000001f7f      0x1e6 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_abbrev  0x0000000000002165      0x27a CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_abbrev  0x00000000000023df      0x245 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_abbrev  0x0000000000002624      0x248 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_abbrev  0x000000000000286c      0x2dd CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_abbrev  0x0000000000002b49      0x418 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
+ .debug_abbrev  0x0000000000002f61      0x106 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_abbrev  0x0000000000003067      0x27e CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+ .debug_abbrev  0x00000000000032e5      0x238 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_abbrev  0x000000000000351d      0x38c CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_abbrev  0x00000000000038a9      0x313 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_abbrev  0x0000000000003bbc      0x303 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
 
 .debug_loc      0x0000000000000000    0x18858
  .debug_loc     0x0000000000000000      0x2fc CMakeFiles/MotionControlSystem.elf.dir/Core/Src/freertos.c.obj
@@ -3699,66 +3699,66 @@ LOAD /Applications/ARM/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libgc
  .debug_line    0x0000000000016d27     0x2c25 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .debug_line    0x000000000001994c      0xe41 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
 
-.debug_str      0x0000000000000000     0x7699
- .debug_str     0x0000000000000000      0xf15 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/freertos.c.obj
-                                        0xffb (size before relaxing)
- .debug_str     0x0000000000000f15      0x3e2 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/gpio.c.obj
+.debug_str      0x0000000000000000     0x76b5
+ .debug_str     0x0000000000000000      0xf31 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/freertos.c.obj
+                                       0x1017 (size before relaxing)
+ .debug_str     0x0000000000000f31      0x3e2 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/gpio.c.obj
                                         0x602 (size before relaxing)
- .debug_str     0x00000000000012f7       0x7c CMakeFiles/MotionControlSystem.elf.dir/Core/Src/key.c.obj
+ .debug_str     0x0000000000001313       0x7c CMakeFiles/MotionControlSystem.elf.dir/Core/Src/key.c.obj
                                         0x2a8 (size before relaxing)
- .debug_str     0x0000000000001373      0x546 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj
+ .debug_str     0x000000000000138f      0x546 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/main.c.obj
                                         0x9b5 (size before relaxing)
- .debug_str     0x00000000000018b9       0xac CMakeFiles/MotionControlSystem.elf.dir/Core/Src/screen.c.obj
+ .debug_str     0x00000000000018d5       0xac CMakeFiles/MotionControlSystem.elf.dir/Core/Src/screen.c.obj
                                         0x409 (size before relaxing)
- .debug_str     0x0000000000001965       0xa8 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/servo.c.obj
+ .debug_str     0x0000000000001981       0xa8 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/servo.c.obj
                                         0x6a1 (size before relaxing)
- .debug_str     0x0000000000001a0d       0x9f CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_str     0x0000000000001a29       0x9f CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
                                         0x591 (size before relaxing)
- .debug_str     0x0000000000001aac      0x143 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
+ .debug_str     0x0000000000001ac8      0x143 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
                                         0xb78 (size before relaxing)
- .debug_str     0x0000000000001bef      0x15e CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_str     0x0000000000001c0b      0x15e CMakeFiles/MotionControlSystem.elf.dir/Core/Src/stm32f1xx_it.c.obj
                                         0xa12 (size before relaxing)
- .debug_str     0x0000000000001d4d      0x258 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/syscalls.c.obj
+ .debug_str     0x0000000000001d69      0x258 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/syscalls.c.obj
                                         0x474 (size before relaxing)
- .debug_str     0x0000000000001fa5       0xba CMakeFiles/MotionControlSystem.elf.dir/Core/Src/sysmem.c.obj
+ .debug_str     0x0000000000001fc1       0xba CMakeFiles/MotionControlSystem.elf.dir/Core/Src/sysmem.c.obj
                                         0x2a0 (size before relaxing)
- .debug_str     0x000000000000205f       0xc3 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_str     0x000000000000207b       0xc3 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/system_stm32f1xx.c.obj
                                         0x2dc (size before relaxing)
- .debug_str     0x0000000000002122      0x1b3 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj
+ .debug_str     0x000000000000213e      0x1b3 CMakeFiles/MotionControlSystem.elf.dir/Core/Src/tim.c.obj
                                         0x915 (size before relaxing)
- .debug_str     0x00000000000022d5       0xba CMakeFiles/MotionControlSystem.elf.dir/Core/Src/usart.c.obj
+ .debug_str     0x00000000000022f1       0xba CMakeFiles/MotionControlSystem.elf.dir/Core/Src/usart.c.obj
                                         0xa8f (size before relaxing)
- .debug_str     0x000000000000238f       0x7b CMakeFiles/MotionControlSystem.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
+ .debug_str     0x00000000000023ab       0x7b CMakeFiles/MotionControlSystem.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
                                          0xd5 (size before relaxing)
- .debug_str     0x000000000000240a      0x2f9 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_str     0x0000000000002426      0x2f9 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
                                         0x8ac (size before relaxing)
- .debug_str     0x0000000000002703      0x3da CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_str     0x000000000000271f      0x3da CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
                                         0x95b (size before relaxing)
- .debug_str     0x0000000000002add      0x284 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+ .debug_str     0x0000000000002af9      0x284 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
                                         0x685 (size before relaxing)
- .debug_str     0x0000000000002d61      0x119 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_str     0x0000000000002d7d      0x119 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
                                         0x488 (size before relaxing)
- .debug_str     0x0000000000002e7a      0x203 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_str     0x0000000000002e96      0x203 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
                                         0x6b3 (size before relaxing)
- .debug_str     0x000000000000307d      0xe3c CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_str     0x0000000000003099      0xe3c CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
                                        0x16c7 (size before relaxing)
- .debug_str     0x0000000000003eb9      0x569 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_str     0x0000000000003ed5      0x569 CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
                                         0xec8 (size before relaxing)
- .debug_str     0x0000000000004422      0x60a CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_str     0x000000000000443e      0x60a CMakeFiles/MotionControlSystem.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
                                         0xd7c (size before relaxing)
- .debug_str     0x0000000000004a2c     0x1237 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
+ .debug_str     0x0000000000004a48     0x1237 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
                                        0x1973 (size before relaxing)
- .debug_str     0x0000000000005c63      0x17e CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_str     0x0000000000005c7f      0x17e CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
                                         0x37d (size before relaxing)
- .debug_str     0x0000000000005de1      0x285 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+ .debug_str     0x0000000000005dfd      0x285 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
                                         0x4e9 (size before relaxing)
- .debug_str     0x0000000000006066      0x226 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_str     0x0000000000006082      0x226 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
                                         0x466 (size before relaxing)
- .debug_str     0x000000000000628c      0x617 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_str     0x00000000000062a8      0x617 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
                                         0xcfb (size before relaxing)
- .debug_str     0x00000000000068a3      0x8d3 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_str     0x00000000000068bf      0x8d3 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
                                        0x12f7 (size before relaxing)
- .debug_str     0x0000000000007176      0x523 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+ .debug_str     0x0000000000007192      0x523 CMakeFiles/MotionControlSystem.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
                                         0xc6e (size before relaxing)
 
 .comment        0x0000000000000000       0x49
